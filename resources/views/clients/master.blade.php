@@ -48,11 +48,11 @@
             <ul>
               <li><a href="{{Route('home')}}">Trang chủ</a></li>
               <li><a href="{{Route('introduce')}}">Giới thiệu</a></li>
-              <li class="menu-item-has-children"><a href="#">Cuộc đấu giá</a>
+              <li class="menu-item-has-children"><a href="{{Route('all-auctions')}}">Cuộc đấu giá</a>
                 <ul class="sub-menu">
-                  <li><a href="#">Cuộc đấu giá sắp đấu giá</a></li>
-                  <li><a href="#">Cuộc đấu giá sắp diễn ra</a></li>
-                  <li><a href="#">Cuộc đấu giá đã kết thúc</a></li>
+                  <li><a href="{{Route('auction-room-1')}}">Cuộc đấu giá sắp đấu giá</a></li>
+                  <li><a href="{{Route('auction-room-2')}}">Cuộc đấu giá đang diễn ra</a></li>
+                  <li><a href="{{Route('auction-room-3')}}">Cuộc đấu giá đã kết thúc</a></li>
                 </ul>
               </li>
               <li class="menu-item-has-children"><a href="{{Route('news')}}">Tin tức</a>

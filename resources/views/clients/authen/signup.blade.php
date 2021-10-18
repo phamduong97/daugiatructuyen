@@ -34,14 +34,25 @@
                                         <div class="col-sm-4">
                                             <input required type="text" tabindex="1" class="form-control input" name="FirstName"
                                                 id="FirstName" placeholder="Họ">
+                                             <br>
+                                            @if ($errors->has('FirstName'))
+                                                <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('FirstName') }}</span>
+                                            @endif
                                         </div>
                                         <div class="col-sm-4">
                                             <input required type="text" tabindex="1" class="form-control input" name="MiddleName"
                                                 id="MiddleName" placeholder="Tên đệm">
+                                                <br>
+                                                @if ($errors->has('MiddleName'))
+                                                    <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('MiddleName') }}</span>
+                                                @endif
                                         </div>
                                         <div class="col-sm-4">
                                             <input required type="text" tabindex="1" class="form-control input" name="LastName"
                                                 id="LastName" placeholder="Tên">
+                                             @if ($errors->has('LastName'))
+                                                <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('LastName') }}</span>
+                                             @endif
                                         </div>
                                     </div>
                                 </div>
@@ -50,8 +61,12 @@
                                     <label class="control-label control-label-Novatic"><span class="">Số điện
                                             thoại</span> <span style="color:red"> *</span></label>
                                     <div class="input-wrap">
-                                        <input required type="text" tabindex="5" class="form-control input" name="phone_number"
+                                          <input required type="text" tabindex="5" class="form-control input" name="phone_number"
                                             id="phone_number" placeholder="Nhập số điện thoại">
+                                          <br>
+                                          @if ($errors->has('phone_number'))
+                                            <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('phone_number') }}</span>
+                                         @endif
                                     </div>
                                 </div>
 
@@ -60,24 +75,36 @@
                                             email</span> <span style="color:red"> *</span></label>
                                     <div class="input-wrap ">
                                         <input required type="text" tabindex="6" class="form-control input register-email-input"
-                                            name="email" id="email" placeholder="Nhập email">
+                                            name="email" id="email" placeholder="Nhập email"> <br>
+                                            <br>
+                                            @if ($errors->has('email'))
+                                              <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('email') }}</span>
+                                           @endif
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label control-label-Novatic" for="pasword">Mật khẩu <span
                                             style="color:red"> *</span></label>
                                     <div class="input-wrap">
-                                        <input required type="password" tabindex="7" class="form-control input" name="password"
+                                           <input required type="password" tabindex="7" class="form-control input" name="password"
                                             id="password" placeholder="Tối thiểu 8 kí tự gồm ký tự viết hoa và số">
+                                            <br>
+                                            @if ($errors->has('password'))
+                                              <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('password') }}</span>
+                                           @endif
                                     </div>
                                 </div>
                                 <div id="userNameRegister" class="form-group ">
                                     <label class="control-label control-label-Novatic" for="pasword">Nhập lại mật khẩu
                                         <span style="color:red"> *</span></label>
                                     <div class="input-wrap">
-                                        <input required type="password" tabindex="8" class="form-control input"
+                                           <input required type="password" tabindex="8" class="form-control input"
                                             name="re_password" id="re_password"
                                             placeholder="Tối thiểu 8 kí tự gồm ký tự viết hoa và số">
+                                            <br>
+                                          @if ($errors->has('re_password'))
+                                              <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('re_password') }}</span>
+                                           @endif
                                     </div>
                                 </div>
 
@@ -86,8 +113,12 @@
                                         Ngày Sinh <span style="color:red"> *</span>
                                     </label>
                                     <div class="input-wrap">
-                                        <input required type="date" tabindex="18" class="form-control register input"
+                                          <input required type="date" tabindex="18" class="form-control register input"
                                             name="birth" id="birth">
+                                            <br>
+                                          @if ($errors->has('birth'))
+                                              <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('birth') }}</span>
+                                           @endif
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -98,19 +129,35 @@
                                             <div class="col-sm-4">
                                                 <input required type="text" class="form-control" name="province" id="province"
                                                     placeholder="Tỉnh/Thành Phố">
+                                                <br>
+                                                @if ($errors->has('province'))
+                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('province') }}</span>
+                                                @endif
                                             </div>
                                             <div class="col-sm-4">
-                                                <input required type="text" class="form-control" name="district" id="district"
+                                                   <input required type="text" class="form-control" name="district" id="district"
                                                     placeholder="Quận/Huyện">
+                                                    <br>
+                                                    @if ($errors->has('district'))
+                                                       <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('district') }}</span>
+                                                    @endif
                                             </div>
                                             <div class="col-sm-4">
                                                 <input required type="text" class="form-control" name="ward" id="ward"
                                                     placeholder="Xã/Phường">
+                                                <br>
+                                                @if ($errors->has('ward'))
+                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('ward') }}</span>
+                                                @endif    
                                             </div>
                                         </div>
                                         <br>
                                         <input required type="text" tabindex="15" class="form-control input " id="address"
                                             name="address" placeholder="Địa chỉ chi tiết">
+                                       <br>
+                                       @if ($errors->has('address'))
+                                          <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('address') }}</span>
+                                       @endif 
 
                                     </div>
                                 </div>
@@ -123,6 +170,10 @@
                                             <option value="Nam">Nam</option>
                                             <option value="Nữ">Nữ</option>
                                         </select>
+                                        <br>
+                                        @if ($errors->has('gender'))
+                                           <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('gender') }}</span>
+                                        @endif 
                                     </div>
                                 </div>
 
@@ -134,6 +185,10 @@
                                             <input required type="text" class="form-control register input" name="idCard_number"
                                                 id="IdCardNumber"
                                                 placeholder="Nhập số CMT, số thẻ căn cước, số hộ chiếu">
+                                             <br>
+                                             @if ($errors->has('idCard_number'))
+                                                <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('idCard_number') }}</span>
+                                             @endif 
                                         </div>
                                     </div>
 
@@ -144,6 +199,10 @@
                                         <div class="input-wrap">
                                             <input required type="date" tabindex="18" class="form-control register input"
                                                 name="idCard_grantedDate" id="IdCardGrantedDate">
+                                             <br>
+                                             @if ($errors->has('idCard_grantedDate'))
+                                                <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('idCard_grantedDate') }}</span>
+                                             @endif 
                                         </div>
                                     </div>
 
@@ -155,6 +214,10 @@
                                             <input required tabindex="20" type="text" class="form-control register input"
                                                 name="idCard_GrantedPlace" id="IdCardGrantedPlace"
                                                 placeholder="Nơi cấp CMT, số thẻ căn cước, số hộ chiếu">
+                                             <br>
+                                             @if ($errors->has('idCard_GrantedPlace'))
+                                                <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('idCard_GrantedPlace') }}</span>
+                                             @endif 
                                         </div>
                                     </div>
                                     <div class="form-group" style="height:240px">
@@ -172,7 +235,11 @@
                                                             <input required tabindex="21" class="form-control" type="file"
                                                                 onchange="UploadFileIdCardPhoto1(event)"
                                                                 name="img_before" value="" id="img_before"
-                                                                accept=".jpg,.png">
+                                                                accept=".jpg,.png,.svg,.gif">
+                                                                <br>
+                                                                @if ($errors->has('img_before'))
+                                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('img_before') }}</span>
+                                                                @endif 
                                                         </div>
 
                                                     </div>
@@ -194,7 +261,11 @@
                                                             <input required tabindex="22" class="form-control" type="file"
                                                                 name="img_after"
                                                                 onchange="UploadFileIdCardPhoto2(event)" value=""
-                                                                id="img_after" accept=".jpg,.png">
+                                                                id="img_after" accept=".jpg,.png,.svg,.gif">
+                                                                <br>
+                                                                @if ($errors->has('img_after'))
+                                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('img_after') }}</span>
+                                                                @endif 
                                                         </div>
 
                                                     </div>
@@ -218,6 +289,10 @@
                                             <input required tabindex="23" type="number" class="form-control register input"
                                                 name="bankAccount_number" id="BankAccountNumber"
                                                 placeholder="Số tài khoản ngân hàng nhận hoàn tiền đặt trước">
+                                                <br>
+                                                @if ($errors->has('bankAccount_number'))
+                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('bankAccount_number') }}</span>
+                                                @endif 
                                         </div>
                                     </div>
 
@@ -234,6 +309,10 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            <br>
+                                            @if ($errors->has('bank_id'))
+                                               <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('bank_id') }}</span>
+                                            @endif 
                                         </div>
                                     </div>
 
@@ -244,6 +323,10 @@
                                             <input required tabindex="25" type="text" class="form-control register input"
                                                 name="bankAccount_Branch" id="BankAccountBranch"
                                                 placeholder="Chi nhánh ngân hàng">
+                                                <br>
+                                                @if ($errors->has('bankAccount_Branch'))
+                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('bankAccount_Branch') }}</span>
+                                                @endif 
                                         </div>
                                     </div>
 
@@ -254,6 +337,10 @@
                                             <input required tabindex="25" type="text" class="form-control register input"
                                                 name="bankAccount_Own" id="BankAccountOwn"
                                                 placeholder="Tên chủ tài khoản">
+                                                <br>
+                                                @if ($errors->has('bankAccount_Own'))
+                                                   <span style="color: red;font-size: 12px; font-weight: bold;font-style: italic;">{{ $errors->first('bankAccount_Own') }}</span>
+                                                @endif 
                                         </div>
                                     </div>
 

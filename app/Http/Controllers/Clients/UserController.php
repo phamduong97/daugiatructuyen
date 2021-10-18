@@ -59,6 +59,60 @@ class UserController extends Controller
 
     public function registerBidderPersonal(Request $req){
 
+        $this->validate($req,[
+            'FirstName'=>'required',
+            'MiddleName'=>'required',
+            'LastName'=>'required',
+            'phone_number'=>'required',
+            'email'=>'required|unique:users,email|email',
+            'birth'=>'required',
+            'address'=>'required',
+            'province'=>'required',
+            'ward'=>'required',
+            'gender'=>'required',
+            'idCard_number'=>'required',
+            'idCard_grantedDate'=>'required',
+            'img_before'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'img_after'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'bank_id'=>'required',
+            'bankAccount_number'=>'required',
+            'bankAccount_Branch'=>'required',
+            'bankAccount_Own'=>'required',
+            'password'=>'required|min:8',
+            're_password'=>'required|same:password'
+        ],
+        [
+            'FirstName.required'=>'Hãy điền vào họ của bạn',
+            'MiddleName.required'=>'Hãy điền vào tên đệm của bạn',
+            'LastName.required'=>'Hãy điền vào tên của bạn',
+            'phone_number.required'=>'Số điện thoại không được để trống',
+            'email.unique'=>'Email này đã trùng với 1 tài khoản khác. Hãy thử lại!',
+            'email.required'=>'Hãy nhập vào email',
+            'email.email'=>'Email không đúng định dạng',
+            'birth.required'=>'Ngày sinh không được để trống',
+            'address.required'=>'Địa chỉ không được để trống',
+            'province.required'=>'Tỉnh không được để trống',
+            'ward.required'=>'Quận/huyện được để trống',
+            'gender.required'=>'Giới tính không được để trống',
+            'idCard_number.required'=>'Số CMT/CCCD không được để trống',
+            'idCard_grantedDate.required'=>'Ngày cấp CMT/ Thẻ căn cước / Hộ chiếu  không được để trống',
+            'img_before.required'=>'Ảnh mặt trướckhông được để trống',
+            'img_before.image'=>'Ảnh mặt trước phải là file dạng ảnh',
+            'img_before.mimes'=>'Ảnh mặt trước phải là ảnh có định dạng jpg,png,gif,svg',
+            'img_after.mimes'=>'Ảnh mặt sau phải là ảnh có định dạng jpg,png,gif,svg',
+            'img_after.image'=>'Ảnh mặt sau phải là file dạng ảnh',
+            'img_after.required'=>'Ảnh mặt sau không được để trống',
+            'bank_id.required'=>'Ngân hàng không được để trống',
+            'bankAccount_number.required'=>'Tài khoản ngân hàng không được để trống',
+            'bankAccount_Branch.required'=>'Tên chủ tài khoản không được để trống',
+            'bankAccount_Own.required'=>'không được để trống',
+            'password.min'=>'Mật khẩu tối đa 8 ký tự',
+            'password.required'=>'Mật khẩu không được để trống',
+            're_password.required'=>'Mật khẩu xác nhận không được để trống',
+            're_password.same'=>'Mật khẩu xác nhận không chính xác'
+
+        ]);
+
         $fileExtension1 = $req->file('img_before')->getClientOriginalExtension(); // Lấy tên của file
         $fileExtension2 = $req->file('img_after')->getClientOriginalExtension(); // Lấy tên của file
 
@@ -126,6 +180,72 @@ class UserController extends Controller
 
     public function registerBidderOrg(Request $req){
 
+        $this->validate($req,[
+            'FirstName2'=>'required',
+            'MiddleName2'=>'required',
+            'LastName2'=>'required',
+            'position'=>'required',
+            'phone_number2'=>'required',
+            'email2'=>'required|unique:users,email|email',
+            'birth2'=>'required',
+            'address2'=>'required',
+            'province2'=>'required',
+            'ward2'=>'required',
+            'gender2'=>'required',
+            'idCard_number2'=>'required',
+            'idCard_grantedDate2'=>'required',
+            'img_before2'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'img_after2'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'bank_id2'=>'required',
+            'bankAccount_number2'=>'required',
+            'bankAccount_Branch2'=>'required',
+            'bankAccount_Own2'=>'required',
+            'password2'=>'required|min:8',
+            're_password2'=>'required|same:password2',
+            'name_company2'=>'required',
+            'tax_code2'=>'required',
+            'date_code_company2'=>'required',
+            'address_company2'=>'required',
+            'fileupload_company2'=>'required|mines:doc,docx,pdf'
+        ],
+        [
+            'FirstName2.required'=>'Hãy điền vào họ của bạn',
+            'MiddleName2.required'=>'Hãy điền vào tên đệm của bạn',
+            'LastName2.required'=>'Hãy điền vào tên của bạn',
+            'position2.required'=>'Chức vụ của người đại diện không được để trống',
+            'phone_number2.required'=>'Số điện thoại không được để trống',   
+            'email2.unique'=>'Email này đã trùng với 1 tài khoản khác. Hãy thử lại!',
+            'email2.required'=>'Hãy nhập vào email',
+            'email2.email'=>'Email không đúng định dạng',
+            'birth2.required'=>'Ngày sinh không được để trống',
+            'address2.required'=>'Địa chỉ không được để trống',
+            'province2.required'=>'Tỉnh không được để trống',
+            'ward2.required'=>'Quận/huyện được để trống',
+            'gender2.required'=>'Giới tính không được để trống',
+            'idCard_number2.required'=>'Số CMT/CCCD không được để trống',
+            'idCard_grantedDate2.required'=>'Ngày cấp CMT/ Thẻ căn cước / Hộ chiếu  không được để trống',
+            'img_before2.required'=>'Ảnh mặt trướckhông được để trống',
+            'img_before2.image'=>'Ảnh mặt trước phải là file dạng ảnh',
+            'img_before2.mimes'=>'Ảnh mặt trước phải là ảnh có định dạng jpg,png,gif,svg',
+            'img_after2.mimes'=>'Ảnh mặt sau phải là ảnh có định dạng jpg,png,gif,svg',
+            'img_after2.image'=>'Ảnh mặt sau phải là file dạng ảnh',
+            'img_after2.required'=>'Ảnh mặt sau không được để trống',
+            'bank_id2.required'=>'Ngân hàng không được để trống',
+            'bankAccount_number2.required'=>'Tài khoản ngân hàng không được để trống',
+            'bankAccount_Branch2.required'=>'Tên chủ tài khoản không được để trống',
+            'bankAccount_Own2.required'=>'không được để trống',
+            'password2.min'=>'Mật khẩu tối đa 8 ký tự',
+            'password2.required'=>'Mật khẩu không được để trống',
+            're_password2.required'=>'Mật khẩu xác nhận không được để trống',
+            're_password2.same'=>'Mật khẩu xác nhận không chính xác',
+            'tax_code2.required'=>'Mã số doanh nghiệp/Mã số thuế không được để trống',
+            'date_code_company2.required'=>'Ngày cấp mã số doanh nghiệp/Mã số thuế không được để trống',
+            'address_company2.required'=>'Nơi cấp mã số doanh nghiệp/Mã số thuế không được để trống',
+            'fileupload_company2.required'=>'Giấy chứng nhận đăng ký kinh doanh không được để trống',
+            'fileupload_company2.mimes'=>'Giấy chứng nhận đăng ký kinh doanh phải có định dạng pdf,doc,docx'
+            
+        ]);
+
         $fileExtension1 = $req->file('img_before2')->getClientOriginalExtension(); // Lấy tên của file ảnh 1
         $fileExtension2 = $req->file('img_after2')->getClientOriginalExtension(); // Lấy tên của file anh 2
         $fileExtension3 = $req->file('fileupload_company')->getClientOriginalExtension(); // Lấy tên của file công ty
@@ -176,7 +296,7 @@ class UserController extends Controller
         $data->certificate = $fileupload_company ;
         $data->type = 2;
         $data->role = 1;
-        $data->password =  bcrypt($req->password) ;
+        $data->password =  bcrypt($req->password2) ;
         $data->stt = 1;
         $data->save();
 
@@ -201,38 +321,6 @@ class UserController extends Controller
 
         return redirect()->back()->with('success','Thêm mới thành công');
 
-        //         array:30 [▼
-        // "_token" => "61XjvlYDCkjt3HH14dNOiFKraBT6KXZaRdxwud5d"
-        // "FirstName2" => "Pham"
-        // "MiddleName2" => "Văn"
-        // "LastName2" => "Duong"
-        // "position" => "giám đốc"
-        // "phone_number2" => "0904654926"
-        // "email2" => "phamduong9337info@gmail.com"
-        // "password2" => "123456"
-        // "re_password2" => "123456"
-        // "birth2" => "2021-07-23"
-        // "province2" => "Ha Noi"
-        // "district2" => "thanh xuân"
-        // "ward2" => "nhân chính"
-        // "address2" => "hà nội"
-        // "gender2" => "Nam"
-        // "idCard_number2" => "133234335355"
-        // "idCard_grantedDate2" => "2021-07-17"
-        // "idCard_GrantedPlace2" => "131333224343"
-        // "bankAccount_number2" => "3434242423"
-        // "bank_id2" => "1000015"
-        // "bankAccount_Branch2" => "mễ trì"
-        // "bankAccount_Own2" => "nam phạm"
-        // "name-company2" => "unity"
-        // "tax-code2" => "12333234433"
-        // "date-code-company2" => "2021-07-17"
-        // "place-code-company2" => "unity"
-        // "address-company2" => "unity"
-        // "img_before2" => UploadedFile {#248 ▶}
-        // "img_after2" => UploadedFile {#249 ▶}
-        // "fileupload-company" => UploadedFile {#255 ▶}
-        // ]
 
     }
 }
